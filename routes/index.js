@@ -22,4 +22,20 @@ module.exports = (app) => {
     }),
     BugController.bugs_to_resolve
   );
+
+
+  app.post(
+    "/bugs_group",
+    celebrate({
+      [Segments.BODY]: {
+        bugs: Joi.array().items({
+          titulo: Joi.string().required(),
+          idade: Joi.number().precision(2).required(),
+          estimativa: Joi.number().precision(2).required(),
+          prioridade: Joi.string().required(),
+        }),
+      },
+    }),
+    BugController.assign_bugs
+  );
 };
