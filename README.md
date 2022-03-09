@@ -8,9 +8,11 @@ Easy peasy!
 
 First you will need docker to run it. 
 And then you must run
-``` docker build ```
+
+``` docker-compose build ```
 
 and then
+
 ``` docker-compose up ```
 
 #### Optional 
