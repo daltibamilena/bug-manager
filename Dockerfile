@@ -1,7 +1,7 @@
 FROM node:17-alpine3.14
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /app
+WORKDIR /app
 
 # install nodemon globally
 RUN npm install nodemon -g
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Bundle app source
-COPY . /usr/src/app
+COPY . /app
 
 # Exports
 EXPOSE 3000
