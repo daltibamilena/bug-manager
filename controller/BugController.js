@@ -1,11 +1,12 @@
 const bugs_to_resolve = (req, res) => {
   let bugs = req.body.bugs;
-
-  res.send(
-    bugs.filter(
+  let response = {
+    bugs: bugs.filter(
       ({ prioridade, idade }) => prioridade === "critico" || idade === 3
-    )
-  );
+    ),
+  };
+
+  res.send(response);
 };
 
 const assign_bugs = (req, res) => {
@@ -14,13 +15,14 @@ const assign_bugs = (req, res) => {
   let result = bugs.reduce((r, o) => {
     const temp = r.find(
       (a) =>
-        a.reduce((e, { estimativa }) => e + estimativa, 0) + o.estimativa <= maxValue);
+        a.reduce((e, { estimativa }) => e + estimativa, 0) + o.estimativa <=
+        maxValue
+    );
     if (temp) temp.push(o);
     else r.push([o]);
     return r;
   }, []);
 
-  
   res.send(result);
 };
 
