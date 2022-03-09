@@ -14,7 +14,8 @@ and then
 ``` docker-compose up ```
 
 #### Optional 
-To make our job easy, there is a script to generate some values
+To make our job easy, there is a script to generate some values:
+
 ``` docker-compose run web npm run generate_bugs ```
 
 And the inform how many bugs you want to generate and press enter, and that's it, just copy the values :)
